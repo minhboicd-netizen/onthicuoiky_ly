@@ -19,83 +19,689 @@
   <script>
     // DỮ LIỆU ĐỀ THI VẬT LÝ ĐẦY ĐỦ (71 CÂU)
     const examData = [
-      // ================= PHẦN I: TRẮC NGHIỆM (45 CÂU) =================
-      { id: "p1_q1", type: "multiple_choice", question: "Câu 1. Phát biểu nào sau đây sai khi nói về từ trường?", options: ["A. Từ trường là trường lực gây ra bởi dòng điện hoặc nam châm.", "B. Từ trường là một dạng vật chất tồn tại xung quanh dòng điện hoặc nam châm.", "C. Từ trường là dạng vật chất tồn tại xung quanh một điện tích đứng yên.", "D. Biểu hiện của từ trường là sự xuất hiện của lực từ tác dụng lên dòng điện hoặc nam châm."], correct_answer: 2 },
-      { id: "p1_q2", type: "multiple_choice", question: "Câu 2. [Cần chèn ảnh công thức] Một đoạn dây dẫn có chiều dài L, có dòng điện I chạy qua được đặt trong một từ trường...", image: "./img/vl_cau2.png", options: ["A", "B", "C", "D"], correct_answer: 1 },
-      { id: "p1_q3", type: "multiple_choice", question: "Câu 3. Hạt nhân U(238) được tạo thành bởi hai loại hạt là:", options: ["A. electron và positron.", "B. neutron và electron.", "C. proton và neutron.", "D. positron và proton."], correct_answer: 2 },
-      { id: "p1_q4", type: "multiple_choice", question: "Câu 4. Số nucleon có trong hạt nhân Sodium Na(23) là:", options: ["A. 34", "B. 12", "C. 11", "D. 23"], correct_answer: 3 },
-      { id: "p1_q5", type: "multiple_choice", question: "Câu 5. [Cần chèn ảnh] Phản ứng hạt nhân nào sau đây không phải là phản ứng nhiệt hạch?", image: "./img/vl_cau5.png", options: ["A", "B", "C", "D"], correct_answer: 3 },
-      { id: "p1_q6", type: "multiple_choice", question: "Câu 6. Với c là tốc độ ánh sáng trong chân không, hệ thức Anhxtanh giữa năng lượng E và khối lượng m của vật là:", options: ["A. E = mc^2", "B. E = m^2c", "C. E = 2mc^2", "D. E = 2mc"], correct_answer: 0 },
-      { id: "p1_q7", type: "multiple_choice", question: "Câu 7. Đại lượng nào sau đây đặc trưng cho mức độ bền vững của hạt nhân?", options: ["A. Số neutron.", "B. Năng lượng liên kết riêng.", "C. Số hạt proton.", "D. Năng lượng liên kết."], correct_answer: 1 },
-      { id: "p1_q8", type: "multiple_choice", question: "Câu 8. Bản chất của tia phóng xạ alpha là:", options: ["A. Hạt nhân He(4,2)", "B. Electron", "C. Positron", "D. Sóng điện từ"], correct_answer: 0 },
-      { id: "p1_q9", type: "multiple_choice", question: "Câu 9. [Cần chèn ảnh công thức] Công thức sai khi thể hiện mối quan hệ giữa các đại lượng phóng xạ là:", image: "./img/vl_cau9.png", options: ["A", "B", "C", "D"], correct_answer: 0 },
-      { id: "p1_q10", type: "multiple_choice", question: "Câu 10. [Cần chèn ảnh] Hình cảnh báo có chất phóng xạ là:", image: "./img/vl_cau10.png", options: ["A. Hình 1", "B. Hình 2", "C. Hình 3", "D. Hình 4"], correct_answer: 1 },
-      { id: "p1_q11", type: "multiple_choice", question: "Câu 11. [Cần chèn ảnh] Một đoạn dây dẫn thẳng dài mang dòng điện đặt vào vùng từ trường đều... Lực từ có chiều:", image: "./img/vl_cau11.png", options: ["A. từ trái sang phải", "B. từ phải sang trái", "C. từ dưới lên", "D. từ trên xuống"], correct_answer: 2 },
-      { id: "p1_q12", type: "multiple_choice", question: "Câu 12. [Cần chèn ảnh] Dùng định luật Len-xơ xác định chiều dòng điện cảm ứng trong khung dây:", image: "./img/vl_cau12.png", options: ["A", "B", "C", "D"], correct_answer: 1 },
-      { id: "p1_q13", type: "multiple_choice", question: "Câu 13. Từ trường là một dạng vật chất tồn tại xung quanh:", options: ["A. các hạt mang điện chuyển động.", "B. các hạt mang điện đứng yên.", "C. các hạt không mang điện chuyển động.", "D. các hạt không mang điện đứng yên."], correct_answer: 0 },
-      { id: "p1_q14", type: "multiple_choice", question: "Câu 14. Đại lượng đặc trưng cho từ trường về khả năng tác dụng lực tại một điểm là:", options: ["A. cảm ứng từ.", "B. suất điện động.", "C. từ thông.", "D. cường độ điện trường."], correct_answer: 0 },
-      { id: "p1_q15", type: "multiple_choice", question: "Câu 15. [Cần chèn ảnh] Một khung dây dẫn kín MNPQ đặt cố định trong từ trường đều... Chiều dòng điện là:", image: "./img/vl_cau15.png", options: ["A", "B", "C", "D"], correct_answer: 2 },
-      { id: "p1_q16", type: "multiple_choice", question: "Câu 16. Hạt nhân Co(60) có cấu tạo gồm:", options: ["A. 33 proton và 27 neutron", "B. 27 proton và 33 neutron", "C. 27 proton và 60 neutron", "D. 33 proton và 27 neutron"], correct_answer: 1 },
-      { id: "p1_q17", type: "multiple_choice", question: "Câu 17. Năng lượng liên kết riêng là:", options: ["A. năng lượng cần giải phóng 1 nucleon.", "B. năng lượng cần giải phóng electron.", "C. năng lượng liên kết tính trung bình cho 1 nucleon.", "D. tỉ số giữa NLLK và điện tích."], correct_answer: 2 },
-      { id: "p1_q18", type: "multiple_choice", question: "Câu 18. Phát biểu sai về Lực hạt nhân:", options: ["A. là lực tương tác mạnh.", "B. chỉ phát huy tác dụng trong kích thước hạt nhân.", "C. có cùng bản chất với lực hấp dẫn.", "D. không phụ thuộc điện tích."], correct_answer: 2 },
-      { id: "p1_q19", type: "multiple_choice", question: "Câu 19. [Cần chèn ảnh] Phản ứng hạt nhân nào sau đây là phản ứng phân hạch?", image: "./img/vl_cau19.png", options: ["A", "B", "C", "D"], correct_answer: 2 },
-      { id: "p1_q20", type: "multiple_choice", question: "Câu 20. Khi nói về các tia phóng xạ, phát biểu nào sau đây sai?", options: ["A. Tia alpha là dòng hạt He.", "B. Tia beta+ là dòng positron.", "C. Tia beta- là dòng electron.", "D. Tia gamma là dòng các hạt nhân H."], correct_answer: 3 },
-      { id: "p1_q21", type: "multiple_choice", question: "Câu 21. Sự phóng xạ:", options: ["A. phụ thuộc nhiệt độ.", "B. không làm biến đổi hạt nhân.", "C. là phản ứng hạt nhân tỏa năng lượng.", "D. phụ thuộc áp suất."], correct_answer: 2 },
-      { id: "p1_q22", type: "multiple_choice", question: "Câu 22. Phát biểu nào đúng về độ phóng xạ?", options: ["A. Đặc trưng cho tính phóng xạ mạnh hay yếu.", "B. Tăng theo thời gian.", "C. Đơn vị là Ci và Bq, 1Ci = 7,3.10^10 Bq.", "D. Không thay đổi theo thời gian."], correct_answer: 0 },
-      { id: "p1_q23", type: "multiple_choice", question: "Câu 23. Tính chất cơ bản của từ trường là gây ra:", options: ["A. lực từ tác dụng lên nam châm hoặc dòng điện.", "B. lực hấp dẫn.", "C. lực đàn hồi.", "D. biến đổi điện."], correct_answer: 0 },
-      { id: "p1_q24", type: "multiple_choice", question: "Câu 24. Đơn vị của cảm ứng từ trong hệ SI là:", options: ["A. Tesla (T).", "B. Vebe (Wb).", "C. Ampe (A).", "D. Newton/Ampe."], correct_answer: 0 },
-      { id: "p1_q25", type: "multiple_choice", question: "Câu 25. [Cần chèn ảnh] Hình nào biểu diễn cấu trúc nguyên tử trung hòa?", image: "./img/vl_cau25.png", options: ["A. Hình a", "B. Hình b", "C. Hình c", "D. Hình d"], correct_answer: 3 },
-      { id: "p1_q26", type: "multiple_choice", question: "Câu 26. [Cần chèn ảnh] Bắn hạt alpha vào lá vàng, hướng nào có nhiều hạt nhất?", image: "./img/vl_cau26.png", options: ["A. Hướng A", "B. Hướng B", "C. Hướng C", "D. Hướng D"], correct_answer: 0 },
-      { id: "p1_q27", type: "multiple_choice", question: "Câu 27. Ra(226) phân rã thành Rn(222) bằng cách phát ra:", options: ["A. electron", "B. hạt alpha", "C. positron", "D. tia gamma"], correct_answer: 1 },
-      { id: "p1_q28", type: "multiple_choice", question: "Câu 28. Hạt nhân bền vững hơn nếu:", options: ["A. có năng lượng liên kết riêng lớn hơn.", "B. năng lượng liên kết riêng nhỏ hơn.", "C. nguyên tử số lớn hơn.", "D. độ hụt khối nhỏ hơn."], correct_answer: 0 },
-      { id: "p1_q29", type: "multiple_choice", question: "Câu 29. [Cần chèn ảnh công thức] Công thức sai về phóng xạ là:", image: "./img/vl_cau29.png", options: ["A", "B", "C", "D"], correct_answer: 0 },
-      { id: "p1_q30", type: "multiple_choice", question: "Câu 30. [Cần chèn ảnh] Biển báo cảnh báo chất phóng xạ là:", image: "./img/vl_cau30.png", options: ["A. Hình 1", "B. Hình 2", "C. Hình 3", "D. Hình 4"], correct_answer: 1 },
-      { id: "p1_q31", type: "multiple_choice", question: "Câu 31. [Cần chèn ảnh] Khung dây dẫn quay đều trong từ trường B, trong mạch sẽ:", image: "./img/vl_cau31.png", options: ["A. dòng điện không đổi.", "B. không xuất hiện dòng điện.", "C. xuất hiện dòng điện xoay chiều.", "D. dòng điện lớn dần."], correct_answer: 2 },
-      { id: "p1_q32", type: "multiple_choice", question: "Câu 32. Đường sức từ không có đặc điểm nào sau đây?", options: ["A. Qua mỗi điểm chỉ vẽ được một đường.", "B. Là những đường cong không khép kín.", "C. Đi ra cực Bắc, đi vào cực Nam.", "D. Mau ở nơi từ trường mạnh, thưa ở yếu."], correct_answer: 1 },
-      { id: "p1_q33", type: "multiple_choice", question: "Câu 33. Phát biểu sai? Lực từ tác dụng lên đoạn dây tỉ lệ với:", options: ["A. cường độ dòng điện.", "B. chiều dài đoạn dây.", "C. góc hợp bởi đoạn dây và đường sức từ.", "D. cảm ứng từ."], correct_answer: 2 },
-      { id: "p1_q34", type: "multiple_choice", question: "Câu 34. Từ thông qua khung dây được tính bằng công thức:", options: ["A. BS sin(a)", "B. BS tan(a)", "C. BS cos(a)", "D. BS cotan(a)"], correct_answer: 2 },
-      { id: "p1_q35", type: "multiple_choice", question: "Câu 35. Nguyên tắc hoạt động của sạc không dây dựa trên ứng dụng của:", options: ["A. hiện tượng từ hoá.", "B. cảm ứng điện từ.", "C. sóng điện từ.", "D. tác dụng từ dòng 1 chiều."], correct_answer: 1 },
-      { id: "p1_q36", type: "multiple_choice", question: "Câu 36. Nhận định đúng về máy biến áp:", options: ["A. Biến đổi điện áp xoay chiều, không đổi tần số.", "B. Biến đổi cả điện áp và tần số.", "C. Không tiêu thụ điện năng.", "D. Lõi sắt là nam châm vĩnh cửu."], correct_answer: 0 },
-      { id: "p1_q37", type: "multiple_choice", question: "Câu 37. Các hạt nhân đồng vị có:", options: ["A. cùng neutron, khác nucleon.", "B. cùng neutron, cùng proton.", "C. cùng proton, khác neutron.", "D. cùng nucleon, khác proton."], correct_answer: 2 },
-      { id: "p1_q38", type: "multiple_choice", question: "Câu 38. Đại lượng đặc trưng cho mức độ bền vững của hạt nhân?", options: ["A. Năng lượng nghỉ.", "B. Độ hụt khối.", "C. Năng lượng liên kết.", "D. Năng lượng liên kết riêng."], correct_answer: 3 },
-      { id: "p1_q39", type: "multiple_choice", question: "Câu 39. Phát biểu sai về phóng xạ:", options: ["A. Phóng xạ alpha, hạt con có neutron nhỏ hơn mẹ.", "B. Phóng xạ beta-, hạt mẹ và con có số khối bằng nhau, proton khác nhau.", "C. Phóng xạ gamma, bảo toàn số proton.", "D. Phóng xạ beta+, hạt mẹ và con có số khối bằng nhau, neutron khác nhau."], correct_answer: 3 }, // Note: user can modify
-      { id: "p1_q40", type: "multiple_choice", question: "Câu 40. [Cần chèn ảnh công thức] Số hạt nhân bị phân rã là:", image: "./img/vl_cau40.png", options: ["A", "B", "C", "D"], correct_answer: 1 },
-      { id: "p1_q41", type: "multiple_choice", question: "Câu 41. Đơn vị của từ thông là:", options: ["A. Tesla", "B. Ampe", "C. Weber", "D. Vold"], correct_answer: 2 },
-      { id: "p1_q42", type: "multiple_choice", question: "Câu 42. [Cần chèn ảnh] Hình nào từ thông qua diện tích có giá trị lớn nhất?", image: "./img/vl_cau42.png", options: ["A. Hình 3", "B. Hình 4", "C. Hình 2", "D. Hình 1"], correct_answer: 3 },
-      { id: "p1_q43", type: "multiple_choice", question: "Câu 43. [Cần chèn ảnh] Hình nào xác định sai hướng của B?", image: "./img/vl_cau43.png", options: ["A. Hình 1", "B. Hình 2", "C. Hình 3", "D. Hình 4"], correct_answer: 3 },
-      { id: "p1_q44", type: "multiple_choice", question: "Câu 44. Định nghĩa đúng về đơn vị amu:", options: ["A. khối lượng 1 nguyên tử H.", "B. khối lượng 1 hạt nhân C.", "C. 1/12 khối lượng hạt nhân C.", "D. 1/12 khối lượng nguyên tử C12."], correct_answer: 3 },
-      { id: "p1_q45", type: "multiple_choice", question: "Câu 45. Sau thời gian 4T, số hạt nhân chưa phân rã còn lại là:", options: ["A. 15/16 N0", "B. 1/16 N0", "C. 1/4 N0", "D. 1/8 N0"], correct_answer: 1 },
+  // ================= PHẦN I: TRẮC NGHIỆM NHIỀU LỰA CHỌN =================
+  {
+    id: "p1_q1",
+    type: "multiple_choice",
+    question: "Câu 1. Phát biểu nào sau đây sai khi nói về từ trường?",
+    options: [
+      "A. Từ trường là trường lực gây ra bởi dòng điện hoặc nam châm.",
+      "B. Từ trường là một dạng vật chất tồn tại xung quanh dòng điện hoặc nam châm.",
+      "C. Từ trường là dạng vật chất tồn tại xung quanh một điện tích đứng yên.",
+      "D. Biểu hiện của từ trường là sự xuất hiện của lực từ tác dụng lên dòng điện hoặc nam châm."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q2",
+    type: "multiple_choice",
+    question: "Câu 2. [Cần chèn ảnh công thức] Một đoạn dây dẫn có chiều dài L, có dòng điện I chạy qua được đặt trong một từ trường...",
+    image: "./img/vl_cau2.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q3",
+    type: "multiple_choice",
+    question: "Câu 3. Hạt nhân U(238) được tạo thành bởi hai loại hạt là:",
+    options: [
+      "A. electron và positron.",
+      "B. neutron và electron.",
+      "C. proton và neutron.",
+      "D. positron và proton."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q4",
+    type: "multiple_choice",
+    question: "Câu 4. Số nucleon có trong hạt nhân Sodium Na(23) là:",
+    options: ["A. 34", "B. 12", "C. 11", "D. 23"],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q5",
+    type: "multiple_choice",
+    question: "Câu 5. [Cần chèn ảnh] Phản ứng hạt nhân nào sau đây không phải là phản ứng nhiệt hạch?",
+    image: "./img/vl_cau5.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q6",
+    type: "multiple_choice",
+    question: "Câu 6. Với c là tốc độ ánh sáng trong chân không, hệ thức Anhxtanh giữa năng lượng E và khối lượng m của vật là:",
+    options: ["A. E = mc^2", "B. E = m^2c", "C. E = 2mc^2", "D. E = 2mc"],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q7",
+    type: "multiple_choice",
+    question: "Câu 7. Đại lượng nào sau đây đặc trưng cho mức độ bền vững của hạt nhân?",
+    options: [
+      "A. Số neutron.",
+      "B. Năng lượng liên kết riêng.",
+      "C. Số hạt proton.",
+      "D. Năng lượng liên kết."
+    ],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q8",
+    type: "multiple_choice",
+    question: "Câu 8. Bản chất của tia phóng xạ alpha là:",
+    options: ["A. Hạt nhân He(4,2)", "B. Electron", "C. Positron", "D. Sóng điện từ"],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q9",
+    type: "multiple_choice",
+    question: "Câu 9. [Cần chèn ảnh công thức] Công thức sai khi thể hiện mối quan hệ giữa các đại lượng phóng xạ là:",
+    image: "./img/vl_cau9.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q10",
+    type: "multiple_choice",
+    question: "Câu 10. [Cần chèn ảnh] Hình cảnh báo có chất phóng xạ là:",
+    image: "./img/vl_cau10.png",
+    options: ["A. Hình 1", "B. Hình 2", "C. Hình 3", "D. Hình 4"],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q11",
+    type: "multiple_choice",
+    question: "Câu 11. [Cần chèn ảnh] Một đoạn dây dẫn thẳng dài mang dòng điện đặt vào vùng từ trường đều... Lực từ có chiều:",
+    image: "./img/vl_cau11.png",
+    options: [
+      "A. từ trái sang phải",
+      "B. từ phải sang trái",
+      "C. từ dưới lên",
+      "D. từ trên xuống"
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q12",
+    type: "multiple_choice",
+    question: "Câu 12. [Cần chèn ảnh] Dùng định luật Len-xơ xác định chiều dòng điện cảm ứng trong khung dây:",
+    image: "./img/vl_cau12.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q13",
+    type: "multiple_choice",
+    question: "Câu 13. Từ trường là một dạng vật chất tồn tại xung quanh:",
+    options: [
+      "A. các hạt mang điện chuyển động.",
+      "B. các hạt mang điện đứng yên.",
+      "C. các hạt không mang điện chuyển động.",
+      "D. các hạt không mang điện đứng yên."
+    ],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q14",
+    type: "multiple_choice",
+    question: "Câu 14. Đại lượng đặc trưng cho từ trường về khả năng tác dụng lực tại một điểm là:",
+    options: [
+      "A. cảm ứng từ.",
+      "B. suất điện động.",
+      "C. từ thông.",
+      "D. cường độ điện trường."
+    ],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q15",
+    type: "multiple_choice",
+    question: "Câu 15. [Cần chèn ảnh] Một khung dây dẫn kín MNPQ đặt cố định trong từ trường đều... Chiều dòng điện là:",
+    image: "./img/vl_cau15.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q16",
+    type: "multiple_choice",
+    question: "Câu 16. Hạt nhân Co(60) có cấu tạo gồm:",
+    options: [
+      "A. 33 proton và 27 neutron",
+      "B. 27 proton và 33 neutron",
+      "C. 27 proton và 60 neutron",
+      "D. 33 proton và 27 neutron"
+    ],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q17",
+    type: "multiple_choice",
+    question: "Câu 17. Năng lượng liên kết riêng là:",
+    options: [
+      "A. năng lượng cần giải phóng 1 nucleon.",
+      "B. năng lượng cần giải phóng electron.",
+      "C. năng lượng liên kết tính trung bình cho 1 nucleon.",
+      "D. tỉ số giữa NLLK và điện tích."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q18",
+    type: "multiple_choice",
+    question: "Câu 18. Phát biểu sai về Lực hạt nhân:",
+    options: [
+      "A. là lực tương tác mạnh.",
+      "B. chỉ phát huy tác dụng trong kích thước hạt nhân.",
+      "C. có cùng bản chất với lực hấp dẫn.",
+      "D. không phụ thuộc điện tích."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q19",
+    type: "multiple_choice",
+    question: "Câu 19. [Cần chèn ảnh] Phản ứng hạt nhân nào sau đây là phản ứng phân hạch?",
+    image: "./img/vl_cau19.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q20",
+    type: "multiple_choice",
+    question: "Câu 20. Khi nói về các tia phóng xạ, phát biểu nào sau đây sai?",
+    options: [
+      "A. Tia alpha là dòng hạt He.",
+      "B. Tia beta+ là dòng positron.",
+      "C. Tia beta- là dòng electron.",
+      "D. Tia gamma là dòng các hạt nhân H."
+    ],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q21",
+    type: "multiple_choice",
+    question: "Câu 21. Sự phóng xạ:",
+    options: [
+      "A. phụ thuộc nhiệt độ.",
+      "B. không làm biến đổi hạt nhân.",
+      "C. là phản ứng hạt nhân tỏa năng lượng.",
+      "D. phụ thuộc áp suất."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q22",
+    type: "multiple_choice",
+    question: "Câu 22. Phát biểu nào đúng về độ phóng xạ?",
+    options: [
+      "A. Đặc trưng cho tính phóng xạ mạnh hay yếu.",
+      "B. Tăng theo thời gian.",
+      "C. Đơn vị là Ci và Bq, 1Ci = 7,3.10^10 Bq.",
+      "D. Không thay đổi theo thời gian."
+    ],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q23",
+    type: "multiple_choice",
+    question: "Câu 23. Tính chất cơ bản của từ trường là gây ra:",
+    options: [
+      "A. lực từ tác dụng lên nam châm hoặc dòng điện.",
+      "B. lực hấp dẫn.",
+      "C. lực đàn hồi.",
+      "D. biến đổi điện."
+    ],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q24",
+    type: "multiple_choice",
+    question: "Câu 24. Đơn vị của cảm ứng từ trong hệ SI là:",
+    options: ["A. Tesla (T).", "B. Vebe (Wb).", "C. Ampe (A).", "D. Newton/Ampe."],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q25",
+    type: "multiple_choice",
+    question: "Câu 25. [Cần chèn ảnh] Hình nào biểu diễn cấu trúc nguyên tử trung hòa?",
+    image: "./img/vl_cau25.png",
+    options: ["A. Hình a", "B. Hình b", "C. Hình c", "D. Hình d"],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q26",
+    type: "multiple_choice",
+    question: "Câu 26. [Cần chèn ảnh] Bắn hạt alpha vào lá vàng, hướng nào có nhiều hạt nhất?",
+    image: "./img/vl_cau26.png",
+    options: ["A. Hướng A", "B. Hướng B", "C. Hướng C", "D. Hướng D"],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q27",
+    type: "multiple_choice",
+    question: "Câu 27. Ra(226) phân rã thành Rn(222) bằng cách phát ra:",
+    options: ["A. electron", "B. hạt alpha", "C. positron", "D. tia gamma"],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q28",
+    type: "multiple_choice",
+    question: "Câu 28. Hạt nhân bền vững hơn nếu:",
+    options: [
+      "A. có năng lượng liên kết riêng lớn hơn.",
+      "B. năng lượng liên kết riêng nhỏ hơn.",
+      "C. nguyên tử số lớn hơn.",
+      "D. độ hụt khối nhỏ hơn."
+    ],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q29",
+    type: "multiple_choice",
+    question: "Câu 29. [Cần chèn ảnh công thức] Công thức sai về phóng xạ là:",
+    image: "./img/vl_cau29.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q30",
+    type: "multiple_choice",
+    question: "Câu 30. [Cần chèn ảnh] Biển báo cảnh báo chất phóng xạ là:",
+    image: "./img/vl_cau30.png",
+    options: ["A. Hình 1", "B. Hình 2", "C. Hình 3", "D. Hình 4"],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q31",
+    type: "multiple_choice",
+    question: "Câu 31. [Cần chèn ảnh] Khung dây dẫn quay đều trong từ trường B, trong mạch sẽ:",
+    image: "./img/vl_cau31.png",
+    options: [
+      "A. dòng điện không đổi.",
+      "B. không xuất hiện dòng điện.",
+      "C. xuất hiện dòng điện xoay chiều.",
+      "D. dòng điện lớn dần."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q32",
+    type: "multiple_choice",
+    question: "Câu 32. Đường sức từ không có đặc điểm nào sau đây?",
+    options: [
+      "A. Qua mỗi điểm chỉ vẽ được một đường.",
+      "B. Là những đường cong không khép kín.",
+      "C. Đi ra cực Bắc, đi vào cực Nam.",
+      "D. Mau ở nơi từ trường mạnh, thưa ở yếu."
+    ],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q33",
+    type: "multiple_choice",
+    question: "Câu 33. Phát biểu sai? Lực từ tác dụng lên đoạn dây tỉ lệ với:",
+    options: [
+      "A. cường độ dòng điện.",
+      "B. chiều dài đoạn dây.",
+      "C. góc hợp bởi đoạn dây và đường sức từ.",
+      "D. cảm ứng từ."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q34",
+    type: "multiple_choice",
+    question: "Câu 34. Từ thông qua khung dây được tính bằng công thức:",
+    options: ["A. BS sin(a)", "B. BS tan(a)", "C. BS cos(a)", "D. BS cotan(a)"],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q35",
+    type: "multiple_choice",
+    question: "Câu 35. Nguyên tắc hoạt động của sạc không dây dựa trên ứng dụng của:",
+    options: [
+      "A. hiện tượng từ hoá.",
+      "B. cảm ứng điện từ.",
+      "C. sóng điện từ.",
+      "D. tác dụng từ dòng 1 chiều."
+    ],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q36",
+    type: "multiple_choice",
+    question: "Câu 36. Nhận định đúng về máy biến áp:",
+    options: [
+      "A. Biến đổi điện áp xoay chiều, không đổi tần số.",
+      "B. Biến đổi cả điện áp và tần số.",
+      "C. Không tiêu thụ điện năng.",
+      "D. Lõi sắt là nam châm vĩnh cửu."
+    ],
+    correct_answer: 0
+  },
+  {
+    id: "p1_q37",
+    type: "multiple_choice",
+    question: "Câu 37. Các hạt nhân đồng vị có:",
+    options: [
+      "A. cùng neutron, khác nucleon.",
+      "B. cùng neutron, cùng proton.",
+      "C. cùng proton, khác neutron.",
+      "D. cùng nucleon, khác proton."
+    ],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q38",
+    type: "multiple_choice",
+    question: "Câu 38. Đại lượng đặc trưng cho mức độ bền vững của hạt nhân?",
+    options: [
+      "A. Năng lượng nghỉ.",
+      "B. Độ hụt khối.",
+      "C. Năng lượng liên kết.",
+      "D. Năng lượng liên kết riêng."
+    ],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q39",
+    type: "multiple_choice",
+    question: "Câu 39. Phát biểu sai về phóng xạ:",
+    options: [
+      "A. Phóng xạ alpha, hạt con có neutron nhỏ hơn mẹ.",
+      "B. Phóng xạ beta-, hạt mẹ và con có số khối bằng nhau, proton khác nhau.",
+      "C. Phóng xạ gamma, bảo toàn số proton.",
+      "D. Phóng xạ beta+, hạt mẹ và con có số khối bằng nhau, neutron khác nhau."
+    ],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q40",
+    type: "multiple_choice",
+    question: "Câu 40. [Cần chèn ảnh công thức] Số hạt nhân bị phân rã là:",
+    image: "./img/vl_cau40.png",
+    options: ["A", "B", "C", "D"],
+    correct_answer: 1
+  },
+  {
+    id: "p1_q41",
+    type: "multiple_choice",
+    question: "Câu 41. Đơn vị của từ thông là:",
+    options: ["A. Tesla", "B. Ampe", "C. Weber", "D. Vold"],
+    correct_answer: 2
+  },
+  {
+    id: "p1_q42",
+    type: "multiple_choice",
+    question: "Câu 42. [Cần chèn ảnh] Hình nào từ thông qua diện tích có giá trị lớn nhất?",
+    image: "./img/vl_cau42.png",
+    options: ["A. Hình 3", "B. Hình 4", "C. Hình 2", "D. Hình 1"],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q43",
+    type: "multiple_choice",
+    question: "Câu 43. [Cần chèn ảnh] Hình nào xác định sai hướng của B?",
+    image: "./img/vl_cau43.png",
+    options: ["A. Hình 1", "B. Hình 2", "C. Hình 3", "D. Hình 4"],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q44",
+    type: "multiple_choice",
+    question: "Câu 44. Định nghĩa đúng về đơn vị amu:",
+    options: [
+      "A. khối lượng 1 nguyên tử H.",
+      "B. khối lượng 1 hạt nhân C.",
+      "C. 1/12 khối lượng hạt nhân C.",
+      "D. 1/12 khối lượng nguyên tử C12."
+    ],
+    correct_answer: 3
+  },
+  {
+    id: "p1_q45",
+    type: "multiple_choice",
+    question: "Câu 45. Sau thời gian 4T, số hạt nhân chưa phân rã còn lại là:",
+    options: ["A. 15/16 N0", "B. 1/16 N0", "C. 1/4 N0", "D. 1/8 N0"],
+    correct_answer: 1
+  },
 
-      // ================= PHẦN II: ĐÚNG / SAI (10 CÂU) =================
-      { id: "p2_q1", type: "true_false", question: "Câu 1. [Cần chèn ảnh] Cho hạt nhân 27Al...", image: "./img/vl_p2_cau1.png", statements: [ { text: "a) Tổng khối lượng nucleon nhỏ hơn khối lượng hạt nhân.", is_true: false }, { text: "b) Gồm 13 proton, 27 neutron.", is_true: false }, { text: "c) Độ hụt khối là 0,2195u.", is_true: true }, { text: "d) NLLK riêng là 10^-12 J.", is_true: false } ] },
-      { id: "p2_q2", type: "true_false", question: "Câu 2. [Cần chèn ảnh] Đồng vị phóng xạ 133Xe...", image: "./img/vl_p2_cau2.png", statements: [ { text: "a) Sản phẩm phân rã là Cesium.", is_true: true }, { text: "b) Hằng số phóng xạ là 0,132 s^-1.", is_true: false }, { text: "c) Số nguyên tử trong mẫu mới là 2,78.10^15.", is_true: true }, { text: "d) Độ phóng xạ khi dùng là 1,86.10^9 Bq.", is_true: false } ] },
-      { id: "p2_q3", type: "true_false", question: "Câu 3. [Cần chèn ảnh] Hạt nhân Vàng và Bạc...", image: "./img/vl_p2_cau3.png", statements: [ { text: "a) Vàng nhiều hơn Bạc 58 neutron.", is_true: true }, { text: "b) Độ hụt khối Vàng là 1,67377 u.", is_true: true }, { text: "c) NLLK của Bạc là 898,4 MeV.", is_true: false }, { text: "d) Vàng bền vững hơn Bạc.", is_true: false } ] },
-      { id: "p2_q4", type: "true_false", question: "Câu 4. [Cần chèn ảnh] Máy chiếu xạ Co(60)...", image: "./img/vl_p2_cau4.png", statements: [ { text: "a) Phương trình phân rã...", is_true: false }, { text: "b) Bức xạ gamma góp phần tiêu diệt vi sinh vật.", is_true: true }, { text: "c) Hằng số phóng xạ là 0,132 s^-1.", is_true: false }, { text: "d) Số hạt nhân còn lại bằng 50%.", is_true: true } ] },
-      { id: "p2_q5", type: "true_false", question: "Câu 5. [Cần chèn ảnh] Đồ thị từ trường B(t)...", image: "./img/vl_p2_cau5.png", statements: [ { text: "a) Độ biến thiên từ thông là 3pi.10^-6.", is_true: false }, { text: "b) Cường độ dòng điện không đổi.", is_true: false }, { text: "c) Không có dòng điện (từ 2-5ms).", is_true: true }, { text: "d) I cảm ứng = 0,67 mA.", is_true: false } ] },
-      { id: "p2_q6", type: "true_false", question: "Câu 6. Xét các phát biểu về Từ trường:", statements: [ { text: "a) Chỉ có ở xung quanh nam châm vĩnh cửu.", is_true: false }, { text: "b) Tồn tại quanh nam châm, dòng điện, Trái Đất.", is_true: true }, { text: "c) Kim nam châm tự do dùng để xác định từ trường.", is_true: false }, { text: "d) La bàn không thể dùng xác định từ trường.", is_true: false } ] },
-      { id: "p2_q7", type: "true_false", question: "Câu 7. [Cần chèn ảnh] Cho phản ứng hạt nhân 37Cl + X...", image: "./img/vl_p2_cau7.png", statements: [ { text: "a) Hạt nhân X là Hidro.", is_true: true }, { text: "b) Phản ứng tỏa năng lượng.", is_true: false }, { text: "c) Năng lượng tỏa là 1,58 MeV.", is_true: false }, { text: "d) Đồng vị Ar có số khối 37.", is_true: true } ] },
-      { id: "p2_q8", type: "true_false", question: "Câu 8. [Cần chèn ảnh] Thí nghiệm từ tính 2 nam châm...", image: "./img/vl_p2_cau8.png", statements: [ { text: "a) Các cực Nam (S) hướng đối diện nhau.", is_true: false }, { text: "b) Đường sức từ xuất phát từ mạnh đến yếu.", is_true: false }, { text: "c) Cùng cực đối diện, đường sức bị uốn cong ra xa.", is_true: true }, { text: "d) Cùng cực có thể chạm nhau ở điểm giữa.", is_true: false } ] },
-      { id: "p2_q9", type: "true_false", question: "Câu 9. [Cần chèn ảnh] Hạt nhân Urani 119g...", image: "./img/vl_p2_cau9.png", statements: [ { text: "a) Có 238 nucleon, trong đó 92 proton.", is_true: true }, { text: "b) Hạt 238U nhiều hơn 235U 1 neutron.", is_true: false }, { text: "c) Số hạt 238U trong 119g là 3,01.10^23.", is_true: true }, { text: "d) Số neutron là 2,2.10^25.", is_true: false } ] },
-      { id: "p2_q10", type: "true_false", question: "Câu 10. [Cần chèn ảnh] Từ trường đều giữa nam châm chữ U...", image: "./img/vl_p2_cau10.png", statements: [ { text: "a) Góc hợp bởi từ trường và pháp tuyến bằng 0.", is_true: true }, { text: "b) Từ thông mỗi vòng là 3,6.10^-5 Wb.", is_true: true }, { text: "c) Độ biến thiên từ thông là 3,6.10^-5.", is_true: false }, { text: "d) Suất điện động trung bình là 2.10^-3 V.", is_true: false } ] },
+  // ================= PHẦN II: ĐÚNG / SAI (10 CÂU) =================
+  {
+    id: "p2_q1",
+    type: "true_false",
+    question: "Câu 1. [Cần chèn ảnh] Cho hạt nhân 27Al...",
+    image: "./img/vl_p2_cau1.png",
+    statements: [
+      { text: "a) Tổng khối lượng nucleon nhỏ hơn khối lượng hạt nhân.", is_true: false },
+      { text: "b) Gồm 13 proton, 27 neutron.", is_true: false },
+      { text: "c) Độ hụt khối là 0,2195u.", is_true: true },
+      { text: "d) NLLK riêng là 10^-12 J.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q2",
+    type: "true_false",
+    question: "Câu 2. [Cần chèn ảnh] Đồng vị phóng xạ 133Xe...",
+    image: "./img/vl_p2_cau2.png",
+    statements: [
+      { text: "a) Sản phẩm phân rã là Cesium.", is_true: true },
+      { text: "b) Hằng số phóng xạ là 0,132 s^-1.", is_true: false },
+      { text: "c) Số nguyên tử trong mẫu mới là 2,78.10^15.", is_true: true },
+      { text: "d) Độ phóng xạ khi dùng là 1,86.10^9 Bq.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q3",
+    type: "true_false",
+    question: "Câu 3. [Cần chèn ảnh] Hạt nhân Vàng và Bạc...",
+    image: "./img/vl_p2_cau3.png",
+    statements: [
+      { text: "a) Vàng nhiều hơn Bạc 58 neutron.", is_true: true },
+      { text: "b) Độ hụt khối Vàng là 1,67377 u.", is_true: true },
+      { text: "c) NLLK của Bạc là 898,4 MeV.", is_true: false },
+      { text: "d) Vàng bền vững hơn Bạc.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q4",
+    type: "true_false",
+    question: "Câu 4. [Cần chèn ảnh] Máy chiếu xạ Co(60)...",
+    image: "./img/vl_p2_cau4.png",
+    statements: [
+      { text: "a) Phương trình phân rã...", is_true: false },
+      { text: "b) Bức xạ gamma góp phần tiêu diệt vi sinh vật.", is_true: true },
+      { text: "c) Hằng số phóng xạ là 0,132 s^-1.", is_true: false },
+      { text: "d) Số hạt nhân còn lại bằng 50%.", is_true: true }
+    ]
+  },
+  {
+    id: "p2_q5",
+    type: "true_false",
+    question: "Câu 5. [Cần chèn ảnh] Đồ thị từ trường B(t)...",
+    image: "./img/vl_p2_cau5.png",
+    statements: [
+      { text: "a) Độ biến thiên từ thông là 3pi.10^-6.", is_true: false },
+      { text: "b) Cường độ dòng điện không đổi.", is_true: false },
+      { text: "c) Không có dòng điện (từ 2-5ms).", is_true: true },
+      { text: "d) I cảm ứng = 0,67 mA.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q6",
+    type: "true_false",
+    question: "Câu 6. Xét các phát biểu về Từ trường:",
+    statements: [
+      { text: "a) Chỉ có ở xung quanh nam châm vĩnh cửu.", is_true: false },
+      { text: "b) Tồn tại quanh nam châm, dòng điện, Trái Đất.", is_true: true },
+      { text: "c) Kim nam châm tự do dùng để xác định từ trường.", is_true: false },
+      { text: "d) La bàn không thể dùng xác định từ trường.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q7",
+    type: "true_false",
+    question: "Câu 7. [Cần chèn ảnh] Cho phản ứng hạt nhân 37Cl + X...",
+    image: "./img/vl_p2_cau7.png",
+    statements: [
+      { text: "a) Hạt nhân X là Hidro.", is_true: true },
+      { text: "b) Phản ứng tỏa năng lượng.", is_true: false },
+      { text: "c) Năng lượng tỏa là 1,58 MeV.", is_true: false },
+      { text: "d) Đồng vị Ar có số khối 37.", is_true: true }
+    ]
+  },
+  {
+    id: "p2_q8",
+    type: "true_false",
+    question: "Câu 8. [Cần chèn ảnh] Thí nghiệm từ tính 2 nam châm...",
+    image: "./img/vl_p2_cau8.png",
+    statements: [
+      { text: "a) Các cực Nam (S) hướng đối diện nhau.", is_true: false },
+      { text: "b) Đường sức từ xuất phát từ mạnh đến yếu.", is_true: false },
+      { text: "c) Cùng cực đối diện, đường sức bị uốn cong ra xa.", is_true: true },
+      { text: "d) Cùng cực có thể chạm nhau ở điểm giữa.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q9",
+    type: "true_false",
+    question: "Câu 9. [Cần chèn ảnh] Hạt nhân Urani 119g...",
+    image: "./img/vl_p2_cau9.png",
+    statements: [
+      { text: "a) Có 238 nucleon, trong đó 92 proton.", is_true: true },
+      { text: "b) Hạt 238U nhiều hơn 235U 1 neutron.", is_true: false },
+      { text: "c) Số hạt 238U trong 119g là 3,01.10^23.", is_true: true },
+      { text: "d) Số neutron là 2,2.10^25.", is_true: false }
+    ]
+  },
+  {
+    id: "p2_q10",
+    type: "true_false",
+    question: "Câu 10. [Cần chèn ảnh] Từ trường đều giữa nam châm chữ U...",
+    image: "./img/vl_p2_cau10.png",
+    statements: [
+      { text: "a) Góc hợp bởi từ trường và pháp tuyến bằng 0.", is_true: true },
+      { text: "b) Từ thông mỗi vòng là 3,6.10^-5 Wb.", is_true: true },
+      { text: "c) Độ biến thiên từ thông là 3,6.10^-5.", is_true: false },
+      { text: "d) Suất điện động trung bình là 2.10^-3 V.", is_true: false }
+    ]
+  },
 
-      // ================= PHẦN III: TRẢ LỜI NGẮN (16 CÂU) =================
-      { id: "p3_q1", type: "short_answer", question: "Câu 1. [Cần chèn ảnh] Một hình vuông cạnh 5 cm đặt trong từ trường đều... Góc hợp bởi B và pháp tuyến bằng bao nhiêu độ?", image: "./img/vl_p3_cau1.png", correct_answer: "60" },
-      { id: "p3_q2", type: "short_answer", question: "Câu 2. [Cần chèn ảnh] Trong 0,05 s từ thông tăng... Suất điện động bằng bao nhiêu?", image: "./img/vl_p3_cau2.png", correct_answer: "-0,1" },
-      { id: "p3_q3", type: "short_answer", question: "Câu 3. [Cần chèn ảnh] Chất phóng xạ X... tỉ số hạt còn lại sau 2T là bao nhiêu?", image: "./img/vl_p3_cau3.png", correct_answer: "0,25" },
-      { id: "p3_q4", type: "short_answer", question: "Câu 4. [Cần chèn ảnh] Chất Cu(64) khối lượng 55g... Phân rã bao nhiêu gam sau 1 ngày?", image: "./img/vl_p3_cau4.png", correct_answer: "40,2" },
-      { id: "p3_q5", type: "short_answer", question: "Câu 5. [Cần chèn ảnh] Vòng dây diện tích 160 cm2... Cường độ dòng điện là bao nhiêu µA?", image: "./img/vl_p3_cau5.png", correct_answer: "64" },
-      { id: "p3_q6", type: "short_answer", question: "Câu 6. [Cần chèn ảnh] Treo thanh đồng 1m... Lực căng dây là bao nhiêu?", image: "./img/vl_p3_cau6.png", correct_answer: "1,96" },
-      { id: "p3_q7", type: "short_answer", question: "Câu 7. [Cần chèn ảnh] Hạt nhân Na(23)... Giá trị ab là bao nhiêu?", image: "./img/vl_p3_cau7.png", correct_answer: "69" },
-      { id: "p3_q8", type: "short_answer", question: "Câu 8. [Cần chèn ảnh] Dây dẫn 1m, I=10A... Góc lệch là bao nhiêu độ?", image: "./img/vl_p3_cau8.png", correct_answer: "30" },
-      { id: "p3_q9", type: "short_answer", question: "Câu 9. [Cần chèn ảnh] Năng lượng U(235)... thắp sáng bóng 100W trong bao nhiêu năm?", image: "./img/vl_p3_cau9.png", correct_answer: "66" },
-      { id: "p3_q10", type: "short_answer", question: "Câu 10. [Cần chèn ảnh] Đá chứa 238U và 206Pb... Tuổi khối đá là bao nhiêu tỉ năm?", image: "./img/vl_p3_cau10.png", correct_answer: "6,9" },
-      { id: "p3_q11", type: "short_answer", question: "Câu 11. [Cần chèn ảnh] Cộng hưởng từ... Cường độ dòng điện là bao nhiêu?", image: "./img/vl_p3_cau11.png", correct_answer: "0,28" },
-      { id: "p3_q12", type: "short_answer", question: "Câu 12. [Cần chèn ảnh] Phốt pho 32P... Khối lượng ban đầu là bao nhiêu gam?", image: "./img/vl_p3_cau12.png", correct_answer: "20" },
-      { id: "p3_q13", type: "short_answer", question: "Câu 13. [Cần chèn ảnh] Động năng hạt alpha là bao nhiêu MeV?", image: "./img/vl_p3_cau13.png", correct_answer: "3,54" },
-      { id: "p3_q14", type: "short_answer", question: "Câu 14. [Cần chèn ảnh] Khung 100 vòng... Suất điện động là bao nhiêu vôn?", image: "./img/vl_p3_cau14.png", correct_answer: "0,05" },
-      { id: "p3_q15", type: "short_answer", question: "Câu 15. [Cần chèn ảnh] Nhà máy điện hạt nhân... Khối lượng tiêu thụ là bao nhiêu kg?", image: "./img/vl_p3_cau15.png", correct_answer: "1495" },
-      { id: "p3_q16", type: "short_answer", question: "Câu 16. [Cần chèn ảnh] Chu kì bán rã là bao nhiêu ngày?", image: "./img/vl_p3_cau16.png", correct_answer: "3,8" }
-    ];
+  // ================= PHẦN III: TRẢ LỜI NGẮN (16 CÂU) =================
+  {
+    id: "p3_q1",
+    type: "short_answer",
+    question: "Câu 1. [Cần chèn ảnh] Một hình vuông cạnh 5 cm đặt trong từ trường đều... Góc hợp bởi B và pháp tuyến bằng bao nhiêu độ?",
+    image: "./img/vl_p3_cau1.png",
+    correct_answer: "60"
+  },
+  {
+    id: "p3_q2",
+    type: "short_answer",
+    question: "Câu 2. [Cần chèn ảnh] Trong 0,05 s từ thông tăng... Suất điện động bằng bao nhiêu?",
+    image: "./img/vl_p3_cau2.png",
+    correct_answer: "-0,1"
+  },
+  {
+    id: "p3_q3",
+    type: "short_answer",
+    question: "Câu 3. [Cần chèn ảnh] Chất phóng xạ X... tỉ số hạt còn lại sau 2T là bao nhiêu?",
+    image: "./img/vl_p3_cau3.png",
+    correct_answer: "0,25"
+  },
+  {
+    id: "p3_q4",
+    type: "short_answer",
+    question: "Câu 4. [Cần chèn ảnh] Chất Cu(64) khối lượng 55g... Phân rã bao nhiêu gam sau 1 ngày?",
+    image: "./img/vl_p3_cau4.png",
+    correct_answer: "40,2"
+  },
+  {
+    id: "p3_q5",
+    type: "short_answer",
+    question: "Câu 5. [Cần chèn ảnh] Vòng dây diện tích 160 cm2... Cường độ dòng điện là bao nhiêu µA?",
+    image: "./img/vl_p3_cau5.png",
+    correct_answer: "64"
+  },
+  {
+    id: "p3_q6",
+    type: "short_answer",
+    question: "Câu 6. [Cần chèn ảnh] Treo thanh đồng 1m... Lực căng dây là bao nhiêu?",
+    image: "./img/vl_p3_cau6.png",
+    correct_answer: "1,96"
+  },
+  {
+    id: "p3_q7",
+    type: "short_answer",
+    question: "Câu 7. [Cần chèn ảnh] Hạt nhân Na(23)... Giá trị ab là bao nhiêu?",
+    image: "./img/vl_p3_cau7.png",
+    correct_answer: "69"
+  },
+  {
+    id: "p3_q8",
+    type: "short_answer",
+    question: "Câu 8. [Cần chèn ảnh] Dây dẫn 1m, I=10A... Góc lệch là bao nhiêu độ?",
+    image: "./img/vl_p3_cau8.png",
+    correct_answer: "30"
+  },
+  {
+    id: "p3_q9",
+    type: "short_answer",
+    question: "Câu 9. [Cần chèn ảnh] Năng lượng U(235)... thắp sáng bóng 100W trong bao nhiêu năm?",
+    image: "./img/vl_p3_cau9.png",
+    correct_answer: "66"
+  },
+  {
+    id: "p3_q10",
+    type: "short_answer",
+    question: "Câu 10. [Cần chèn ảnh] Đá chứa 238U và 206Pb... Tuổi khối đá là bao nhiêu tỉ năm?",
+    image: "./img/vl_p3_cau10.png",
+    correct_answer: "6,9"
+  },
+  {
+    id: "p3_q11",
+    type: "short_answer",
+    question: "Câu 11. [Cần chèn ảnh] Cộng hưởng từ... Cường độ dòng điện là bao nhiêu?",
+    image: "./img/vl_p3_cau11.png",
+    correct_answer: "0,28"
+  },
+  {
+    id: "p3_q12",
+    type: "short_answer",
+    question: "Câu 12. [Cần chèn ảnh] Phốt pho 32P... Khối lượng ban đầu là bao nhiêu gam?",
+    image: "./img/vl_p3_cau12.png",
+    correct_answer: "20"
+  },
+  {
+    id: "p3_q13",
+    type: "short_answer",
+    question: "Câu 13. [Cần chèn ảnh] Động năng hạt alpha là bao nhiêu MeV?",
+    image: "./img/vl_p3_cau13.png",
+    correct_answer: "3,54"
+  },
+  {
+    id: "p3_q14",
+    type: "short_answer",
+    question: "Câu 14. [Cần chèn ảnh] Khung 100 vòng... Suất điện động là bao nhiêu vôn?",
+    image: "./img/vl_p3_cau14.png",
+    correct_answer: "0,05"
+  },
+  {
+    id: "p3_q15",
+    type: "short_answer",
+    question: "Câu 15. [Cần chèn ảnh] Nhà máy điện hạt nhân... Khối lượng tiêu thụ là bao nhiêu kg?",
+    image: "./img/vl_p3_cau15.png",
+    correct_answer: "1495"
+  },
+  {
+    id: "p3_q16",
+    type: "short_answer",
+    question: "Câu 16. [Cần chèn ảnh] Chu kì bán rã là bao nhiêu ngày?",
+    image: "./img/vl_p3_cau16.png",
+    correct_answer: "3,8"
+  }
+];
 
     // ================= LOGIC ĐIỀU HƯỚNG VÀ XỬ LÝ =================
     let queue = [];
