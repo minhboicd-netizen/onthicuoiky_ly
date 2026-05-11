@@ -146,7 +146,21 @@
 
     function selectMcq(idx) { if(feedbackMode) return; userMcqAns = idx; renderApp(); }
     function selectTf(stmtIdx, boolVal) { if(feedbackMode) return; userTfAns[stmtIdx] = boolVal; renderApp(); }
-    function inputShortAns(val) { userShortAns = val; renderApp(); } 
+    function inputShortAns(val) { 
+  userShortAns = val; 
+  
+  // Chỉ tìm và cập nhật trạng thái nút bấm, KHÔNG load lại toàn bộ trang
+  let btn = document.getElementById('submitBtn');
+  if (btn) {
+    if (userShortAns.trim() !== "") {
+      btn.disabled = false;
+      btn.classList.remove('opacity-50', 'cursor-not-allowed');
+    } else {
+      btn.disabled = true;
+      btn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+  }
+}
 
     // ================= GIAO DIỆN PHIẾU TRẢ LỜI =================
     function renderApp() {
@@ -226,7 +240,8 @@
         questionHtml += `
           <div class="mt-4">
             <input type="text" oninput="inputShortAns(this.value)" value="${userShortAns}" placeholder="Nhập đáp án..." 
-            class="w-full p-6 border-4 border-gray-200 rounded-2xl focus:border-indigo-500 focus:outline-none transition-all text-3xl font-black text-center text-indigo-900" ${feedbackMode ? 'disabled' : ''}>
+class="w-full p-6 border-4 border-gray-200 rounded-2xl focus:border-indigo-500 focus:outline-none transition-all text-3xl font-black text-center text-indigo-900" ${feedbackMode ? 'disabled' : ''}
+onkeydown="if(event.key === 'Enter' && this.value.trim() !== '') checkAnswer()">
             ${feedbackMode && !isCurrentCorrect ? `<p class="mt-4 text-center text-red-600 font-bold bg-red-50 p-4 rounded-xl border-2 border-red-200">Đáp án chính xác: <span class="text-2xl">${currentQ.correct_answer}</span></p>` : ''}
           </div>
         `;
@@ -234,21 +249,28 @@
 
       questionHtml += `</div>`;
 
-      // NÚT KIỂM TRA
+      // NÚT KIỂM TRA & TIẾP TỤC
       let actionHtml = '';
       if (!feedbackMode) {
         let ready = (currentQ.type === 'multiple_choice' && userMcqAns !== null) || 
                     (currentQ.type === 'true_false' && !userTfAns.includes(null)) ||
                     (currentQ.type === 'short_answer' && userShortAns.trim() !== "");
                     
-        actionHtml = `<button onclick="checkAnswer()" ${!ready ? 'disabled' : ''} class="w-full ${ready ? 'bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-200 translate-y-0' : 'bg-gray-200 text-gray-400 cursor-not-allowed'} text-white font-black py-5 rounded-2xl text-xl transition-all uppercase tracking-widest">Chốt Đáp Án</button>`;
+        // Tự động nhận diện màu môn học (Hóa: emerald, Lý: indigo)
+        let btnColor = document.body.className.includes('emerald') ? 'bg-emerald-500 hover:bg-emerald-600 shadow-emerald-200' : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200';
+
+        actionHtml = `<button id="submitBtn" onclick="checkAnswer()" ${!ready ? 'disabled' : ''} class="w-full ${btnColor} shadow-xl text-white font-black py-5 rounded-2xl text-xl transition-all uppercase tracking-widest ${!ready ? 'opacity-50 cursor-not-allowed' : ''}">Chốt Đáp Án</button>`;
       } else {
         const fbText = isCurrentCorrect ? '✅ CHÍNH XÁC!' : '❌ SAI RỒI!';
+        let btnColor = document.body.className.includes('emerald') ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-green-600 hover:bg-green-700';
+        if (!isCurrentCorrect) btnColor = 'bg-red-500 hover:bg-red-600';
+
         actionHtml = `
           <div class="p-2 rounded-2xl border-2 flex items-center justify-between ${isCurrentCorrect ? 'bg-green-50 border-green-500 text-green-700' : 'bg-red-50 border-red-500 text-red-700'} shadow-sm">
             <span class="font-black text-2xl pl-4">${fbText}</span>
-            <button onclick="nextStep()" class="px-10 py-4 font-black rounded-xl text-white shadow-md ${isCurrentCorrect ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'} transition-all text-xl uppercase tracking-widest">Tiếp tục ⏭</button>
+            <button id="nextBtn" onclick="nextStep()" class="px-10 py-4 font-black rounded-xl text-white shadow-md ${btnColor} transition-all text-xl uppercase tracking-widest">Tiếp tục ⏭</button>
           </div>
+          <script>setTimeout(() => { let n = document.getElementById('nextBtn'); if(n) n.focus(); }, 50);<\/script>
         `;
       }
       app.innerHTML = progressHtml + questionHtml + actionHtml;
